@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daimler - Frontend Developer Test</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    em {
+      background: yellow;
+      padding-left: 2px;
+      padding-right: 5px;
+    }
+
+    main {
+      max-width: 767px;
+      margin: 0 auto;
+    }
+
+    main h2, main h3 {
+      color: #311b92;
+      font-weight: 300;
+    }
+
+    main h2 {
+      font-size: 30px;
+      border-top: 1px dashed grey;
+      padding-top: 16px;
+    }
+
+    main h3 {
+      font-size: 20px;
+    }
+
+    a:link, a:visited {
+      color: #311b92;
+    }
+
+    ol p, ul p {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    li {
+      line-height: 2;
+    }
+
+    code {
+      background: #eee;
+    }
+
+    .pageHeader, .pageFooter {
+      background: #747579;
+      background: linear-gradient(-22deg, #747579 30%, #a0a1a5 100%);
+    }
+
+    .pageFooter {
+      padding: 10px 0 20px;
+      text-align: center;
+    }
+
+    .pageHeader {
+      padding-bottom: 30px;
+      color: white;
+    }
+
+    .pageHeadline {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 30px;
+      font-size: 40px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .pageHeadline .subline {
+      font-size: smaller;
+      border-top: 1px dashed white;
+      max-width: 767px;
+      margin-top: 30px;
+      padding-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pageSubHeadline {
+      color: white;
+    }
+
+    .homepageLink:link,
+    .homepageLink:visited {
+      text-decoration: none;
+      color: white;
+    }
+
+    .confidentialMessage {
+      font-weight: 400;
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 767px;
+    }
+  </style>
+</head>
+<body>
+  <header class="pageHeader">
+    <h1 class="pageHeadline"><a class="homepageLink" href="https://www.daimler.com">Daimler</a> <div class="subline"> Frontend Developer Test</div></h1>
+  </header>
+  <main>
+      <p>THIS IS A CONFIDENTIAL EXERCISE, WHICH IS PART OF A RECRUITING PROCESS AND AS SUCH, IT SHOULD NOT BE SHARED, DISTRIBUTED OR EXPOSED ANYWHERE. DOING SO, WILL AUTOMATICALLY DISQUALIFY YOU FROM THE PROCESS.</p>
+<p><strong>This is an important document for your future career. Please read <em>carefully</em> through <em>all</em> of the following instructions before you begin with the implementation.</strong></p>
+<p>This test is targeted at two different levels: Junior Frontend Developers and Frontend Heroes. Reading through this document + setup should take ~20min. <em>Please choose your own level.</em></p>
+<p>Also, please keep in mind that your handed in code will form the basis of the next steps in the formal recruiting process. It is therefore only in your own best interest to be able to explain every code decision you took.</p>
+<h2><a id="Table_of_Contents_9"></a>Table of Contents</h2>
+<h2><a id="Whom_were_looking_for_11"></a>Whom we’re looking for</h2>
+<p>At Daimler we develop high quality websites that covers a broad range of necessities. Which is why we expect our developers to feel at home in all areas of modern Frontend development. Expressive markup, crossbrowser/crossdevice working CSS styles and lean JavaScript code should therefore be on your high priority list.</p>
+<h2><a id="Setup_your_system_15"></a>Setup your system</h2>
+<h3><a id="nodejs_v6x_17"></a>node.js v6.x</h3>
+<p>You will need <a href="https://nodejs.org">node.js</a> v6.x. In case you want to manage several node versions on your machine, we recommend <a href="https://github.com/creationix/nvm">nvm</a> for Mac/*nix and <a href="https://github.com/marcelklehr/nodist">nodist</a> for Windows.</p>
+<h3><a id="Install_NPM_packages_and_run_build_21"></a>Install NPM packages and run build</h3>
+<p>Once you have node.js installed, open up your OS’s Terminal/Bash application, change into the root folder of the test (where the file <code>package.json</code> is located) and run <code>npm install</code>.</p>
+<p>After all NPM packages installed successfully, the build process will automatically trigger (you can do that manually by running <code>npm run build</code>). It will execute <a href="http://stackoverflow.com/questions/8503559/what-is-linting#8503586">linters</a> for JavaScript, CSS and HTML and also pre-process SASS files and convert them to CSS. Please note that you will need a <em>working Internet connection</em> to run the HTML linter.</p>
+<p>At this point you should get no errors which means that all linters successfully passed your code.</p>
+<h3><a id="IDE_configuration_29"></a>IDE configuration</h3>
+<p>Please configure your IDE to use the <a href="http://editorconfig.org/#download"><code>.editorconfig</code></a>, <a href="https://github.com/stylelint/stylelint/blob/master/docs/user-guide/complementary-tools.md#editor-plugins"><code>.stylelintrc</code></a> and <a href="http://eslint.org/docs/user-guide/integrations#editors"><code>.eslintrc</code></a> files you find in the project’s root folder. This way you will see you linting errors directly in your IDE.</p>
+<h3><a id="Helper_tools_33"></a>Helper tools</h3>
+<p>We’ve got NPM scripts prepared that can help you while you are developing.</p>
+<p>Open up for each of the following commands a tab (or session) in your OS’s Terminal/Bash application and run them from within the root folder of this test (where the <code>package.json</code> file is located).</p>
+<ul>
+<li><code>npm run watch:lint</code> - starts the linters in watch mode; meaning on every file change the linters will run and give you instant feedback if there’s something to improve</li>
+<li><code>npm run watch:css</code>
+<ul>
+<li>every fill change on any <code>*.scss</code> file will trigger the SASS pre-processor and generate a CSS file</li>
+<li>afterwards all CSS files be passed to <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> which removes the necessity for you to care about browser vendor prefixes</li>
+</ul>
+</li>
+</ul>
+<h3><a id="Troubleshooting_44"></a>Troubleshooting</h3>
+<p>If you experience problems during the setup please <em>STOP</em> and send a message to the human resource employee you are in contact with, describing your steps and pasting the error log of your Terminal/Bash application.</p>
+<h2><a id="What_we_expect_from_your_code_48"></a>What we expect from your code</h2>
+<h3><a id="Browsers_it_should_work_in_and_display_correctly_50"></a>Browsers it should work in and display correctly</h3>
+<ul>
+<li>Latest Chrome</li>
+<li>Latest Firefox</li>
+</ul>
+<h3><a id="Where_should_I_place_my_files_55"></a>Where should I place my files?</h3>
+<p>We’ve got an initial folder and file structure in <code>src</code> prepared for you:</p>
+<ul>
+<li><code>index.html</code> - HTML file with prepared markup and included assets.</li>
+<li><code>main.js</code> - this should be your main JS file which coordinates other JS modules</li>
+<li><code>styles.scss</code> - this file will be taken as the entry point once you run any css related tasks like <code>npm run css</code> or <code>npm run watch:css</code></li>
+<li><code>themes/default</code>
+<ul>
+<li><code>default.scss</code> - here you can find predefined mixins, variables and classes that will help you to implement the required design as fast as possible. <em>Please read carefully through this file so you don’t have to reinvent the wheel.</em></li>
+</ul>
+</li>
+<li><code>components/breadcrumbs</code></li>
+<li><code>components/footer</code></li>
+<li><code>components/header</code></li>
+<li><code>components/page</code></li>
+<li><code>components/shop</code></li>
+<li><code>components/shoppingcart</code>
+<ul>
+<li><code>shoppingcart.js</code></li>
+<li><code>shoppingcart.model.js</code> - <em>only important for Frontend Heroes</em></li>
+<li><code>shoppingcart.model.test.js</code> - <em>only important for Frontend Heroes</em></li>
+<li><code>shoppingcart.scss</code></li>
+</ul>
+</li>
+<li><code>libs-polyfills</code> - place external JavaScript (e.g. jQuery) or CSS/SCSS libraries in here</li>
+</ul>
+<p>Feel free to adapt everything except for <code>shoppingcart.model.test.js</code>.</p>
+<h3><a id="Coding_guidelines_78"></a>Coding guidelines</h3>
+<ol>
+<li>
+<p>HTML markup<br>
+Make sure the document contains semantically correct HTML5 markup <a href="http://html5doctor.com/lets-talk-about-semantics/">[help]</a>.</p>
+</li>
+<li>
+<p>Accessibility</p>
+<ul>
+<li>fully functional with keyboard</li>
+<li>tab navigation follows a logical flow</li>
+<li>use buttons where buttons are needed <a href="https://medium.com/shopify-ux/semantic-html-the-unbearable-rightness-of-being-9b3c493e1791">[help]</a></li>
+<li>correct usage of ARIA landmark roles [<a href="https://www.paciellogroup.com/blog/2013/02/using-wai-aria-landmarks-2013/">help</a>]</li>
+</ul>
+</li>
+<li>
+<p>CSS</p>
+<ul>
+<li>We kindly ask you to use SASS.</li>
+<li>Your CSS should be markup independent. E.g. no class names as <code>.h1</code> or <code>.table</code>.</li>
+<li>Your SASS code should be split into modules. Use the prepared folder structure <code>src/components/*</code> and add into each component a new <code>.scss</code> file with the component’s name. E.g. within <code>src/components/breadcrumbs</code> you want to add <code>breadcrumbs.scss</code>.</li>
+<li>make sure your selectors have a low specificity <a href="https://medium.com/@dte/understanding-css-selector-specificity-a02238a02a59">[help]</a></li>
+<li>Twitter Bootstrap or similar component frameworks are not allowed, however utility libraries such as <a href="https://www.npmjs.com/package/breakpoint-sass">breakpoint-sass</a> or <a href="https://github.com/postcss/postcss">PostCSS + plugins</a> can be used</li>
+<li>avoid <strong>deeply</strong> nested selectors for more modular CSS [<a href="http://thesassway.com/intermediate/avoid-nested-selectors-for-more-modular-css">help</a> and [<a href="http://thesassway.com/advanced/modular-css-an-example#striking-a-balance">help</a>]</li>
+</ul>
+</li>
+<li>
+<p>JavaScript</p>
+<ul>
+<li>jQuery is allowed (or other libraries that might help you with DOM manipulation), but <em>no frameworks</em></li>
+<li>avoid generating completely new HTML structures from within JavaScript</li>
+</ul>
+</li>
+</ol>
+<h3><a id="Can_I_use_additional_NPM_packages_101"></a>Can I use additional NPM packages?</h3>
+<p>Yes, as long as the points from the above section <a href="#coding-guidelines">Coding guidelines</a> are not violated.</p>
+<h2><a id="Requirements_105"></a>Requirements</h2>
+<h3><a id="Junior_Developers_and_Frontend_Heroes_107"></a>Junior Developers <em>and</em> Frontend Heroes</h3>
+<ol>
+<li>
+<p>HTML markup</p>
+<p>Lucky you! Most of it is already prepared. However, probably you will have to add new markup to achieve the required design.</p>
+</li>
+<li>
+<p>Dynamic behavior</p>
+<ul>
+<li>initially only the shop with its items is shown; the shopping cart form is hidden</li>
+<li>the shopping cart form will become visible once the first shop item was added; however it will also become invisible, when there’s no item in the shopping cart; at the same time the “empty shopping cart” disappears</li>
+<li>when the user clicked on the <code>Add to cart</code> button, the according shop item is added to the cart or the quantity of an already listed item is increased</li>
+<li>clicking on the <code>Remove</code> button should remove the according item from the shopping cart</li>
+<li>clicking on the <code>+</code> and <code>-</code> quantity buttons should change all relevant numbers</li>
+<li>clicking on the “Proceed to Checkout” button will make it inactive and replace its label with “Sending your order…”</li>
+</ul>
+</li>
+<li>
+<p>The title image (<code>src/themes/default/title.*.jpg</code>) changes according to the pixel density and viewport width. For <code>2dppx</code> use the one that carries <code>2x</code> in its name.</p>
+</li>
+<li>
+<p>The website should look the same in the required browsers.</p>
+</li>
+</ol>
+<h3><a id="Only_Junior_Developers_125"></a><em>Only</em> Junior Developers</h3>
+<ol start="5">
+<li>Please make it look like <a href="design/small_viewport.png">small_viewport.png</a> using the provided measurements (<a href="design/small_viewport_measurements.png">small viewport</a> and referenced <a href="design/large_viewport_measurements.png">large viewport</a>).</li>
+</ol>
+<p>Reminder: We expect semantically correct HTML5 and markup independent CSS.</p>
+<ol start="6">
+<li>Bonus - <em>We will only take that into consideration when all of the above points work as expected.</em>
+<ul>
+<li>Create a parallax effect on the title image [<a href="http://keithclark.co.uk/articles/pure-css-parallax-websites/#update-25-feb-2015">help</a>].</li>
+</ul>
+</li>
+</ol>
+<h3><a id="Only_Frontend_Heroes_134"></a><em>Only</em> Frontend Heroes</h3>
+<ol start="5">
+<li>
+<p>Leave an empty file named “I AM A FRONTEND HERO” in the root folder.</p>
+</li>
+<li>
+<p>Configuration</p>
+<ul>
+<li>Remove <code>/* eslint-disable */</code> from the top of the file <code>components/shoppingcart/shoppingcart.model.js</code></li>
+<li>add within the <code>.eslintrc</code> file to the <code>rules</code> property <code>&quot;complexity&quot;: [&quot;error&quot;, 4]</code></li>
+<li>add to the script task <code>build</code> the task <code>test</code> so ends up looking like <code>&quot;build&quot;: &quot;npm-run-all lint css test&quot;</code></li>
+</ul>
+</li>
+<li>
+<p>JavaScript</p>
+<ul>
+<li>Write your code in <code>components/shoppingcart/shoppingcart.model.js</code> so that at least 10 tests of the test suite in <code>components/shoppingcart/shoppingcart.model.test.js</code> pass (<a href="design/test-ideal-outcome.png">test-ideal-outcome.png</a>).</li>
+<li>The rest of the code you need to interact with the DOM should be placed in <code>components/shoppingcart/shoppingcart.js</code>.</li>
+<li>Run the test suite with <code>npm run test</code> or <code>npm run watch:test</code>.</li>
+</ul>
+</li>
+<li>
+<p>Please make it look like <a href="design/large_viewport.png">large_viewport.png</a> using the provided <a href="design/large_viewport_measurements.png">measurements</a>. Large viewports start at 800px; the design for smaller viewports remains unstyled.</p>
+</li>
+<li>
+<p>Bonus - <em>We will only take that into consideration when all of the above points work as expected.</em></p>
+<ul>
+<li>Add new tasks to minify the HTML, CSS and JavaScript files and put the result in a <code>dist</code> folder at the root level. It should also clean the <code>dist</code> folder before each run. Make sure the above happens as part of the <code>build</code> task.</li>
+</ul>
+</li>
+</ol>
+<h2><a id="What_are_you_expected_to_hand_in_153"></a>What are you expected to hand in?</h2>
+<p>Please remember, when running <code>npm run build</code> there should be <em>no errors</em>. Take your time to make it work.</p>
+<p>Finally, prepare a zip archive with your solution which you send back as an email to the human resource employee you are in contact with and tell her/him if you ultimately applied as a Junior Frontend Developer or as a Frontend Hero. <em>PLEASE DO NOT INCLUDE THE <code>node_modules</code> folder</em>.</p>
+<p>Good luck :-)</p>
+
+  </main>
+  <footer class="pageFooter">
+    <a class="homepageLink" href="https://www.daimler.com">Daimler</a>
+  </footer>
+</body>
+</html>

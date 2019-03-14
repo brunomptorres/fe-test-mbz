@@ -1,0 +1,47 @@
+{
+  "name": "frontend-hero-test",
+  "version": "1.0.6",
+  "description": "Test for a Frontend Hero and Junior Frontend Developer position at Daimler",
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "npm-run-all lint css minify-all test",
+    "clean-css": "cleancss -o dist/sytles.min.css src/styles.css",
+    "clear-dist": "rm -Rf dist && mkdir -p dist",
+    "css": "npm-run-all css:precompile css:autoprefix",
+    "css:autoprefix": "postcss --use autoprefixer --replace src/styles.css",
+    "css:precompile": "node-sass --include-path src/libs-polyfills --output-style expanded --output src src/styles.scss",
+    "html-min": "htmlmin -o dist/index.min.html src/index.html",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:css": "stylelint \"src/**/*.scss\"",
+    "lint:js": "eslint --ignore-pattern libs-polyfills src",
+    "lint:html": "html-validator --verbose --file src/index.html",
+    "minify-all": "npm-run-all clear-dist uglifyjs html-min clean-css",
+    "test": "jest --coverage",
+    "uglifyjs": "uglifyjs src/**/*.js -m -o dist/main.min.js",
+    "watch:css": "npm run css && onchange \"src/**/*.scss\" -- npm-run-all css",
+    "watch:lint": "npm run lint && onchange \"src/**/*.{scss|html|js}\" -- npm run lint",
+    "watch:test": "npm run test -- --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.7.5",
+    "clean-css-cli": "^4.1.10",
+    "eslint": "3.16.1",
+    "html-minifier-cli": "^0.1.0",
+    "html-validator-cli": "3.1.0",
+    "jest": "19.0.2",
+    "node-sass": "4.5.0",
+    "npm-run-all": "4.0.1",
+    "onchange": "3.2.1",
+    "postcss-cli": "2.6.0",
+    "stylelint": "7.9.0",
+    "stylelint-config-standard": "16.0.0",
+    "uglifyjs": "^2.4.11"
+  },
+  "engines": {
+    "node": "^6.9"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,62 @@
+.section-shop {
+  float: left;
+  width: calc(60% - 30px);
+  padding: 20px;
+}
+
+.section-shop h2 {
+  margin: 0;
+  font-size: $font-size-headline-component-large;
+  font-weight: $font-weight-regular;
+  color: $c-primary;
+}
+
+.section-shop ol {
+  padding: 0;
+}
+
+.section-shop li {
+  position: relative;
+  float: left;
+  width: calc(50% - 10px);
+  height: 220px;
+  list-style: none;
+  padding: 10px;
+  border: 1px dashed $c-secondary-darker;
+  margin: 0 $horizontal-rythm-spacing-text $vertical-rythm-spacing-text 0;
+
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+
+.section-shop h3 {
+  margin: 0 0 $vertical-rythm-spacing-text 0;
+}
+
+.section-shop footer {
+  position: absolute;
+  bottom: $vertical-rythm-spacing-text;
+  left: 0;
+  width: 100%;
+  padding: 0 12px;
+}
+
+.section-shop__product {
+  float: left;
+  width: 100%;
+}
+
+.section-shop button {
+  @include text-button;
+
+  float: left;
+  text-align: left;
+}
+
+.section-shop__price {
+  font-weight: $font-weight-bold;
+  float: right;
+  text-align: right;
+  margin: 0;
+}

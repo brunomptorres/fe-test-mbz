@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+// -- VARIABLES
+//
+// Please note: the 'large' in variable names refers to large viewports
+
+// -- Colors
+$c-primary: #311b92;
+$c-primary-lighter: lighten($c-primary, 30%);
+$c-secondary: #fff;
+$c-secondary-dark: darken($c-secondary, 3%);
+$c-secondary-darker: darken($c-secondary, 20%);
+
+// -- Font weights
+$font-weight-base: 300;
+$font-weight-regular: $font-weight-base;
+$font-weight-bold: 400;
+$font-weight-bolder: 600;
+
+// - Font sizes
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-headline-primary: 30px;
+$font-size-headline-primary-large: 42px;
+$font-size-headline-component: 30px;
+$font-size-headline-component-large: 35px;
+$font-size-table-header: 25px;
+$font-size-final-output: 22px;
+
+// - Line heights
+$line-height-factor-base: 1.5;
+
+// -- Paths
+//  considering that the entry point is styles.scss
+$path-theme-dir: 'themes/default';
+$path-image-title-small: '#{$path-theme-dir}/title.small.png';
+$path-image-title-small-2x: '#{$path-theme-dir}/title.small.2x.png';
+$path-image-title-large: '#{$path-theme-dir}/title.large.png';
+$path-image-title-large-2x: '#{$path-theme-dir}/title.large.2x.png';
+$path-logo-svg: '#{$path-theme-dir}/logo.svg';
+
+// -- horizontal rhytm
+$horizontal-rythm-spacing-text: 10px;
+
+// -- vertical rhytm
+$vertical-rythm-spacing-component: 30px;
+$vertical-rythm-spacing-text: 10px;
+
+// -- page
+$breakpoint-large-px: 800px;
+$page-max-width: 1180px;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+// -- MIXINS
+
+@mixin theme-background {
+  background: linear-gradient(-22deg, $c-primary-lighter 30%, $c-primary 100%);
+}
+
+@mixin link-with-logo {
+  display: inline-block;
+  color: transparent;
+  background-image: url('#{$path-logo-svg}');
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 20px;
+  height: 38px;
+
+  &:link,
+  &:visited {
+    color: transparent;
+  }
+}
+
+@mixin remove-button-appearance {
+  box-shadow: none;
+  background-color: transparent;
+  transition: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin text-button {
+  @include remove-button-appearance;
+
+  color: $c-primary;
+  font-size: $font-size-base;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin cart-button {
+  @include remove-button-appearance;
+
+  background: $c-primary;
+  border-radius: 6px;
+  padding: $vertical-rythm-spacing-text;
+  font-size: $font-size-base;
+  color: $c-secondary;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus {
+    background: $c-primary-lighter;
+  }
+}
+
+// -- Styles
+
+// Universal Box Sizing with Inheritance
+// https://css-tricks.com/box-sizing/
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  min-height: 100%;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-size-adjust: 100%;
+}
+
+body,
+html {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  line-height: $line-height-factor-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $horizontal-rythm-spacing-text;
+  padding-right: $horizontal-rythm-spacing-text;
+  max-width: $page-max-width;
+  box-sizing: border-box;
+}
+
+.is-hidden {
+  display: none;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+.is-visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  // Extends the .visuallyhidden class to allow the element to be focusable
+  // when navigated to via the keyboard: h5bp.com/p
+  &.is-focusable:focus {
+    position: static;
+    clip: auto;
+  }
+}

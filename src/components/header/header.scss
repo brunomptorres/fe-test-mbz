@@ -1,0 +1,40 @@
+.header {
+  @include theme-background;
+}
+
+.header__section-gradient {
+  @include theme-background;
+
+  height: 350px;
+  width: 100%;
+}
+
+.header__section {
+  background-image: url($path-image-title-large);
+  margin-top: -38px;
+  height: 350px;
+  width: 100%;
+  display: table;
+  float: left;
+}
+
+@media only screen and (min-resolution: 2dppx) {
+  background-image: url($path-image-title-large-2x);
+}
+
+.header__logo {
+  @include link-with-logo;
+
+  width: 100%;
+  margin-top: $vertical-rythm-spacing-text;
+  margin-left: 32px;
+}
+
+.header__title {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: $font-size-headline-primary-large;
+  font-weight: $font-weight-regular;
+  color: $c-secondary;
+}

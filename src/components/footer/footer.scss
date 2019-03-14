@@ -1,0 +1,21 @@
+.footer__container {
+  @include theme-background;
+
+  float: left;
+  width: 100%;
+  margin-top: $vertical-rythm-spacing-component;
+  padding: $vertical-rythm-spacing-text 0;
+}
+
+.footer__logo {
+  @include link-with-logo;
+
+  float: left;
+  width: 20%;
+  margin-left: 32px;
+}
+
+.footer__copy {
+  color: $c-secondary;
+  font-weight: $font-weight-bolder;
+}
